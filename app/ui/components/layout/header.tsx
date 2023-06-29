@@ -1,7 +1,7 @@
 import {Text, TouchableOpacity, View} from "react-native";
 import headerStyles from "./styles/headerStyles";
 import {Feather, SimpleLineIcons} from "@expo/vector-icons";
-import {Colors} from "../../../infrastructure/resources/styles/theme";
+import {Colors} from "../../../infrastructure/styles/theme";
 
 export default function Header() {
 

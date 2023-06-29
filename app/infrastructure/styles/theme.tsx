@@ -1,8 +1,8 @@
-import appIcons from "../app-icons";
+import appIcons from "../resources/app-icons";
 
 export enum Colors {
     primary       = '#FFC83A',
-    black         = '000000',
+    black         = '#000000',
     white         = '#FFFFFF',
     whiteMate     = '#F2F2F2',
     mate          = '#EFEEEE',

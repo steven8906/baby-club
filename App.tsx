@@ -7,77 +7,66 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import AppContext from "./app/application/context/app-context";
 import {useApp} from "./app/application/hooks/use-app-context";
 import Welcome from "./app/ui/screens/welcome/welcome";
-import {StyleSheet} from "react-native";
-import {Colors} from "./app/infrastructure/resources/styles/theme";
-import {Ionicons, MaterialIcons} from "@expo/vector-icons";
+import Favorites from "./app/ui/screens/favorites/favorites";
+import tabStyles from "./app/infrastructure/styles/tab-styles";
+import {FavoritesButton, HistoryButton, HomeButton, UserButton} from "./app/ui/components/tab-buttons/tab-buttons";
+import User from "./app/ui/screens/user/user";
+import HistoryOrders from "./app/ui/screens/history-orders/history-orders";
+import {createStackNavigator} from "@react-navigation/stack";
+import ProductDetail from "./app/ui/screens/product-detail/product-detail";
 
 export default function App() {
-    const {fontsLoaded}       = useFontConfig();
+    const {fontsLoaded} = useFontConfig();
     const {screen, setScreen} = useApp();
-    const Tab                 = createBottomTabNavigator();
+    const Tab = createBottomTabNavigator();
+    const Stack = createStackNavigator();
 
     if (!fontsLoaded) return null;
 
-
-    const HomeButton = () => <>
-        <Ionicons name="home"
-                  size={28}
-                  style={tabStyles.icon}
-                  color={screen === ConfigNavigation.home ?
-                      Colors.primary :
-                      Colors.silver}/>
-    </>
-
-    const FavoritesButton = () => <>
-        <MaterialIcons name="favorite"
-                       size={28}
-                       color={screen === ConfigNavigation.favorites ?
-                           Colors.primary :
-                           Colors.silver}/>
-    </>
-
     const iconsRoute: { [key: string]: React.ReactNode } = {
-        [ConfigNavigation.home]      : <HomeButton/>,
-        [ConfigNavigation.favorites] : <FavoritesButton/>,
+        [ConfigNavigation.home]          : <HomeButton screen     ={screen}/>,
+        [ConfigNavigation.favorites]     : <FavoritesButton screen={screen}/>,
+        [ConfigNavigation.user]          : <UserButton screen     ={screen}/>,
+        [ConfigNavigation.historyOrders] : <HistoryButton screen  ={screen}/>,
     }
 
     return <>
 
         <AppContext.Provider value={{screen, setScreen}}>
-            {screen === ConfigNavigation.home ?
-                <NavigationContainer>
-                    <Tab.Navigator
-                        initialRouteName={ConfigNavigation.home}
-                        screenOptions={({route}) => (
-                            {
-                                headerShown : false,
-                                tabBarStyle : tabStyles.tabBarStyle,
-                                title       : '',
-                                tabBarIcon: ({size, color, focused}) => {
-                                    if (route.name in iconsRoute) return iconsRoute[route.name]
+            {screen !== ConfigNavigation.welcome ?
+                <>
+                    <NavigationContainer>
+                        <Tab.Navigator
+                            initialRouteName={ConfigNavigation.home}
+                            screenOptions={({route}) => (
+                                {
+                                    headerShown: false,
+                                    tabBarStyle: tabStyles.tabBarStyle,
+                                    title: '',
+                                    tabBarIcon: () => {
+                                        if (route.name in iconsRoute) return iconsRoute[route.name]
+                                    },
                                 }
-                            }
-                        )}>
-                        <Tab.Screen name={ConfigNavigation.home} component={Home}/>
-                        <Tab.Screen name={ConfigNavigation.favorites} component={Home}/>
-                        {/*<Tab.Screen name="Settings" component={SettingsScreen} />*/}
-                    </Tab.Navigator>
-                </NavigationContainer> :
+                            )}>
+                            <Tab.Screen name={ConfigNavigation.home}
+                                        component={Home}
+                                        listeners={{tabPress: () => setScreen(ConfigNavigation.home)}}/>
+                            <Tab.Screen name={ConfigNavigation.favorites}
+                                        component={Favorites}
+                                        listeners={{tabPress: () => setScreen(ConfigNavigation.favorites)}}/>
+                            <Tab.Screen name={ConfigNavigation.user}
+                                        component={User}
+                                        listeners={{tabPress: () => setScreen(ConfigNavigation.user)}}/>
+                            <Tab.Screen name={ConfigNavigation.historyOrders}
+                                        component={HistoryOrders}
+                                        listeners={{tabPress: () => setScreen(ConfigNavigation.historyOrders)}}/>
+                        </Tab.Navigator>
+                    </NavigationContainer>
+                    {/*<Stack.Navigator>*/}
+                    {/*    <Stack.Screen name={ConfigNavigation.productDetail} component={ProductDetail}/>*/}
+                    {/*</Stack.Navigator>*/}
+                </> :
                 <Welcome/>}
         </AppContext.Provider>
     </>
 }
-
-const tabStyles = StyleSheet.create({
-    tabBarStyle: {
-        backgroundColor: Colors.whiteMate,
-        borderTopColor: Colors.whiteMate,
-    },
-    icon:{
-        borderRadius  : 10,
-        shadowOffset  : {width: 0, height: 0},
-        shadowColor   : Colors.primary,
-        shadowOpacity : .8,
-        shadowRadius  : 6,
-    }
-})

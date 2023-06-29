@@ -1,7 +1,7 @@
 import {Image, SafeAreaView, View} from "react-native";
 import welcomeStyles from "./styles/welcome-styles";
 import TextBold from "../../components/text/text-bold";
-import {Colors} from "../../../infrastructure/resources/styles/theme";
+import {Colors} from "../../../infrastructure/styles/theme";
 import ButtonWhitePrimary from "../../components/buttons/button-white-primary";
 import useAppContext from "../../../application/hooks/use-app-context";
 import appImg from "../../../infrastructure/resources/app-img";

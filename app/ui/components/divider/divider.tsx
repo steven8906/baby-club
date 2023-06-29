@@ -1,5 +1,5 @@
 import {View} from "react-native";
-import {Colors} from "../../infrastructure/resources/styles/theme";
+import {Colors} from "../../../infrastructure/styles/theme";
 
 interface Props {
     color?: Colors;

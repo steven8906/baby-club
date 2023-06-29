@@ -1,5 +1,5 @@
 import {TouchableOpacity} from "react-native";
-import {Colors} from "../../../infrastructure/resources/styles/theme";
+import {Colors} from "../../../infrastructure/styles/theme";
 import TextRegular from "../text/text-regular";
 import buttonStyles from "./styles/button-styles";
 import {useState} from "react";

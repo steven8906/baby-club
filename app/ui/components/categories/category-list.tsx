@@ -1,7 +1,7 @@
 import {ScrollView, TouchableOpacity, View} from "react-native";
 import TextLight from "../text/text-light";
-import {Colors} from "../../../infrastructure/resources/styles/theme";
-import Divider from "../divider";
+import {Colors} from "../../../infrastructure/styles/theme";
+import Divider from "../divider/divider";
 import {useState} from "react";
 
 export default function CategoryList() {

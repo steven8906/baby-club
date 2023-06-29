@@ -1,7 +1,7 @@
 import {TextInput, View} from "react-native";
 import textInputIconStyles from "./styles/text-input-Icon-styles";
 import {Ionicons} from "@expo/vector-icons";
-import {FontFamilies} from "../../../infrastructure/resources/styles/theme";
+import {FontFamilies} from "../../../infrastructure/styles/theme";
 
 interface Props {
     placeholder?: string;

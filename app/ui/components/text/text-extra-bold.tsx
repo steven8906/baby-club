@@ -1,6 +1,6 @@
 import React from "react/index";
 import {Text, View} from "react-native";
-import {Colors, FontFamilies} from "../../../infrastructure/resources/styles/theme";
+import {Colors, FontFamilies} from "../../../infrastructure/styles/theme";
 
 interface Props {
     children : React.ReactNode;
