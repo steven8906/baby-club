@@ -1,6 +1,7 @@
 import React from "react";
+import ConfigNavigation from "../../../infrastructure/navigation/config-navigation";
 
 export default interface AppContextModel {
-    screen    : 'welcome' | 'home';
-    setScreen : React.Dispatch<React.SetStateAction<'welcome' | 'home'>>;
+    screen    : ConfigNavigation;
+    setScreen : React.Dispatch<React.SetStateAction<ConfigNavigation>>;
 }

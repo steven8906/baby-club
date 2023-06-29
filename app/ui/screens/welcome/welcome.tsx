@@ -5,6 +5,7 @@ import {Colors} from "../../../infrastructure/resources/styles/theme";
 import ButtonWhitePrimary from "../../components/buttons/button-white-primary";
 import useAppContext from "../../../application/hooks/use-app-context";
 import appImg from "../../../infrastructure/resources/app-img";
+import ConfigNavigation from "../../../infrastructure/navigation/config-navigation";
 
 export default function Welcome() {
     const { setScreen } = useAppContext();
@@ -22,7 +23,7 @@ export default function Welcome() {
                             source={appImg.welcome}
                         />
                         <ButtonWhitePrimary text={"Iniciar"}
-                                            callback={() => setScreen('home')}/>
+                                            callback={() => setScreen(ConfigNavigation.home)}/>
                     </View>
                 </View>
             </View>

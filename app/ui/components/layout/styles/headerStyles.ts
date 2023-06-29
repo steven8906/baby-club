@@ -2,9 +2,10 @@ import {StyleSheet} from "react-native";
 
 export default StyleSheet.create({
    content : {
-      flexDirection   : 'row',
-      justifyContent  : 'center',
-      alignItems      : 'flex-start'
+      flexDirection     : 'row',
+      justifyContent    : 'center',
+      alignItems        : 'flex-start',
+      paddingHorizontal : 25,
    },
    menuButtonContent:{
       flex : 1,
