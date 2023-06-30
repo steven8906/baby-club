@@ -44,8 +44,8 @@ export default function Home({navigation}) {
 
     return <>
         <LayoutSafeArea>
-            <View style={{flex: dimensions.hp(50),padding: 20, justifyContent:'flex-end'}}>
-                <View style={{width: '70%', marginTop: 25}}>
+            <View style={{flex: dimensions.hp(45),padding: 20, justifyContent:'flex-end'}}>
+                <View style={{width: '70%'}}>
                     <TextBold fontSize={34}>
                         Lo que necesitas para tu bebé
                     </TextBold>
@@ -57,7 +57,8 @@ export default function Home({navigation}) {
                     <CategoryList/>
                 </View>
             </View>
-            <View  style={{flex:dimensions.hp(50), paddingHorizontal:20}}>
+            <View  style={{flex:dimensions.hp(50), paddingHorizontal:20
+            }}>
                 <ScrollView
                             horizontal
                             showsHorizontalScrollIndicator={false}>

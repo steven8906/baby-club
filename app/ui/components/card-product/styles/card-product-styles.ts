@@ -1,5 +1,6 @@
 import {StyleSheet} from "react-native";
 import {AppColors} from "../../../../infrastructure/styles/theme";
+import dimensions from "../../../../cross-cutting/hepers/dimensions";
 
 export default StyleSheet.create({
     box: {
@@ -18,11 +19,11 @@ export default StyleSheet.create({
     },
     boxImage:{
         position      : "absolute",
-        top           : '-40%',
+        top           : dimensions.hp(-15),
     },
     image:{
-        width             : 150,
-        height            : 150,
+        width             : dimensions.wp(35),
+        height            : dimensions.hp(35),
         resizeMode        : 'contain',
     },
     boxText:{
