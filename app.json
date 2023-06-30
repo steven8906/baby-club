@@ -24,10 +24,16 @@
       },
       "permissions": [
         "INTERNET"
-      ]
+      ],
+      "package": "com.novacol.babyclub.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "80d33825-11c9-439e-adec-7b2b57a06000"
+      }
     }
   }
 }

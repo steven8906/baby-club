@@ -1,12 +1,13 @@
 import {StyleSheet} from "react-native";
 
-export enum Colors {
+export enum AppColors {
     primary       = '#FFC83A',
     black         = '#000000',
     white         = '#FFFFFF',
     whiteMate     = '#F2F2F2',
     mate          = '#EFEEEE',
     silver        = '#A9A9A9',
+    transparent   = 'transparent',
 }
 
 export enum FontFamilies {
@@ -19,7 +20,7 @@ export enum FontFamilies {
 
 export const shadows = StyleSheet.create({
     first:{
-        shadowColor       : Colors.black,
+        shadowColor       : AppColors.black,
         shadowOpacity     : .4,
         shadowRadius      : 25,
         shadowOffset      : {height: 0, width: 0},

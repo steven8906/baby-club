@@ -1,5 +1,5 @@
 import {TouchableOpacity} from "react-native";
-import {Colors} from "../../../infrastructure/styles/theme";
+import {AppColors} from "../../../infrastructure/styles/theme";
 import TextRegular from "../text/text-regular";
 import buttonStyles from "./styles/button-styles";
 import {useState} from "react";
@@ -7,10 +7,10 @@ import {useState} from "react";
 interface Props {
     text     : string;
     callback :()=> void;
-    color?   : Colors;
+    color?   : AppColors;
 }
 
-export default function ButtonWhitePrimary({text, callback, color = Colors.primary}: Props) {
+export default function ButtonWhitePrimary({text, callback, color = AppColors.primary}: Props) {
 
     const [isPressed, setIsPressed] = useState<boolean>(false);
 
@@ -22,11 +22,11 @@ export default function ButtonWhitePrimary({text, callback, color = Colors.prima
             onPress={callback}
             style={{
                 ...buttonStyles.button,
-                backgroundColor: isPressed ? Colors.primary : Colors.white,
-                borderColor: isPressed ? Colors.white : Colors.primary,
+                backgroundColor: isPressed ? AppColors.primary : AppColors.white,
+                borderColor: isPressed ? AppColors.white : AppColors.primary,
                 borderWidth: 1
             }}>
-            <TextRegular fontSize={16} color={isPressed ? Colors.white : Colors.primary}>
+            <TextRegular fontSize={16} color={isPressed ? AppColors.white : AppColors.primary}>
                 {text}
             </TextRegular>
         </TouchableOpacity>

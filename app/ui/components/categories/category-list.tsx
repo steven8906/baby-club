@@ -1,6 +1,6 @@
 import {ScrollView, TouchableOpacity, View} from "react-native";
 import TextLight from "../text/text-light";
-import {Colors} from "../../../infrastructure/styles/theme";
+import {AppColors} from "../../../infrastructure/styles/theme";
 import Divider from "../divider/divider";
 import {useState} from "react";
 
@@ -17,7 +17,7 @@ export default function CategoryList() {
                     <View style={{marginHorizontal: 5}}>
                         <View style={{paddingHorizontal: 15, marginBottom: 10}}>
                             <TextLight fontSize={18}
-                                       color={indexCategory === index ? Colors.primary : Colors.silver}>
+                                       color={indexCategory === index ? AppColors.primary : AppColors.silver}>
                                 {x}
                             </TextLight>
                         </View>

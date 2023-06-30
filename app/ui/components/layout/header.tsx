@@ -1,7 +1,7 @@
 import {Text, TouchableOpacity, View} from "react-native";
 import headerStyles from "./styles/headerStyles";
 import {Feather, SimpleLineIcons} from "@expo/vector-icons";
-import {Colors} from "../../../infrastructure/styles/theme";
+import {AppColors} from "../../../infrastructure/styles/theme";
 
 export default function Header() {
 
@@ -13,7 +13,7 @@ export default function Header() {
                 </TouchableOpacity>
             </View>
             <View style={headerStyles.basketButtonContent}>
-                <SimpleLineIcons name="basket-loaded" size={25} color={Colors.silver}/>
+                <SimpleLineIcons name="basket-loaded" size={25} color={AppColors.silver}/>
             </View>
         </View>
     </>

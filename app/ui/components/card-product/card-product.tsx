@@ -2,7 +2,7 @@ import {Image, TouchableOpacity, View} from "react-native";
 import cardProductStyles from "./styles/card-product-styles";
 import TextBold from "../text/text-bold";
 import TextMedium from "../text/text-medium";
-import {Colors} from "../../../infrastructure/styles/theme";
+import {AppColors} from "../../../infrastructure/styles/theme";
 import ProductModel from "../../../data/models/product/product-model";
 import formatters from "../../../cross-cutting/hepers/formatters";
 
@@ -23,7 +23,7 @@ export default function CardProduct({name, pathImg, value, callbackOnPress}: Car
                             <TextMedium fontSize={18}>
                                 {name}
                             </TextMedium>
-                            <TextBold fontSize={16} color={Colors.primary}>
+                            <TextBold fontSize={16} color={AppColors.primary}>
                                 {formatters.currency(value)}
                             </TextBold>
                         </View>

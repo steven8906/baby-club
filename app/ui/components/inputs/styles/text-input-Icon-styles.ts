@@ -1,9 +1,9 @@
 import {StyleSheet} from "react-native";
-import {Colors} from "../../../../infrastructure/styles/theme";
+import {AppColors} from "../../../../infrastructure/styles/theme";
 
 export default StyleSheet.create({
     box: {
-        backgroundColor   : Colors.mate,
+        backgroundColor   : AppColors.mate,
         paddingHorizontal : 25,
         borderRadius      : 30,
         flexDirection     :'row',

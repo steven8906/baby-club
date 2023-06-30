@@ -1,7 +1,7 @@
 import {Feather, Ionicons, MaterialIcons} from "@expo/vector-icons";
 import ConfigNavigation from "../../../infrastructure/navigation/config-navigation";
 import tabStyles from "../../../infrastructure/styles/tab-styles";
-import {Colors} from "../../../infrastructure/styles/theme";
+import {AppColors} from "../../../infrastructure/styles/theme";
 import * as React from "react";
 
 
@@ -10,8 +10,8 @@ export const HomeButton = ({screen}: { screen: string }) => <>
               size={28}
               style={screen === ConfigNavigation.home && {...tabStyles.icon}}
               color={screen === ConfigNavigation.home ?
-                  Colors.primary :
-                  Colors.silver}/>
+                  AppColors.primary :
+                  AppColors.silver}/>
 </>
 
 export const FavoritesButton = ({screen}: { screen: string }) => <>
@@ -20,8 +20,8 @@ export const FavoritesButton = ({screen}: { screen: string }) => <>
                    style={screen === ConfigNavigation.favorites
                        && {...tabStyles.icon}}
                    color={screen === ConfigNavigation.favorites ?
-                       Colors.primary :
-                       Colors.silver}/>
+                       AppColors.primary :
+                       AppColors.silver}/>
 </>
 
 export const UserButton = ({screen}: { screen: string }) => <>
@@ -30,8 +30,8 @@ export const UserButton = ({screen}: { screen: string }) => <>
              style={screen === ConfigNavigation.user
                  && {...tabStyles.icon}}
              color={screen === ConfigNavigation.user ?
-                 Colors.primary :
-                 Colors.silver}/>
+                 AppColors.primary :
+                 AppColors.silver}/>
 </>
 
 export const HistoryButton = ({screen}: { screen: string }) => <>
@@ -40,6 +40,6 @@ export const HistoryButton = ({screen}: { screen: string }) => <>
                    style={screen === ConfigNavigation.historyOrders
                        && {...tabStyles.icon}}
                    color={screen === ConfigNavigation.historyOrders ?
-                       Colors.primary :
-                       Colors.silver}/>
+                       AppColors.primary :
+                       AppColors.silver}/>
 </>

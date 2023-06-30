@@ -1,12 +1,12 @@
 import {View} from "react-native";
-import {Colors} from "../../../infrastructure/styles/theme";
+import {AppColors} from "../../../infrastructure/styles/theme";
 
 interface Props {
-    color?: Colors;
+    color?: AppColors;
     width?: number | string;
 }
 
-export default function Divider({color = Colors.primary, width = '100%'}: Props) {
+export default function Divider({color = AppColors.primary, width = '100%'}: Props) {
     return <>
         <View style={{
             width,

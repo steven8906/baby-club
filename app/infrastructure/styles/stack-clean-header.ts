@@ -1,10 +1,10 @@
-import {Colors} from "./theme";
+import {AppColors} from "./theme";
 import {StackNavigationOptions} from "@react-navigation/stack";
 
 const options : StackNavigationOptions = {
     headerTitleContainerStyle: {display: 'none'},
     headerStyle: {
-        backgroundColor : Colors.white,
+        backgroundColor : AppColors.white,
         borderWidth     : 0,
         elevation       : 0,
         shadowOpacity   : 0,

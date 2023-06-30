@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import {Colors} from "../../../../infrastructure/styles/theme";
+import {AppColors} from "../../../../infrastructure/styles/theme";
 
 export default StyleSheet.create({
     box: {
@@ -8,7 +8,7 @@ export default StyleSheet.create({
         paddingBottom     : 40,
         paddingHorizontal : 30,
         borderRadius      : 20,
-        shadowColor       : Colors.silver,
+        shadowColor       : AppColors.silver,
         shadowOpacity     : .4,
         shadowRadius      : 25,
         shadowOffset      : {height: 0, width: 0},

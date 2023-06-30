@@ -1,15 +1,15 @@
 import {StyleSheet} from "react-native";
-import {Colors} from "./theme";
+import {AppColors} from "./theme";
 
 export default StyleSheet.create({
     tabBarStyle: {
-        backgroundColor: Colors.whiteMate,
-        borderTopColor: Colors.whiteMate,
+        backgroundColor: AppColors.whiteMate,
+        borderTopColor: AppColors.whiteMate,
     },
     icon:{
         borderRadius  : 10,
         shadowOffset  : {width: 0, height: 0},
-        shadowColor   : Colors.primary,
+        shadowColor   : AppColors.primary,
         shadowOpacity : .8,
         shadowRadius  : 6,
     },

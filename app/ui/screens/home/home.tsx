@@ -1,4 +1,4 @@
-import {ScrollView, View} from "react-native";
+import {Dimensions, PixelRatio, ScrollView, View} from "react-native";
 import LayoutSafeArea from "../../components/layout/layout-safe-area";
 import TextBold from "../../components/text/text-bold";
 import TextInputSearch from "../../components/inputs/text-input-search";
@@ -6,6 +6,7 @@ import CategoryList from "../../components/categories/category-list";
 import CardProduct from "../../components/card-product/card-product";
 import ProductModel from "../../../data/models/product/product-model";
 import ConfigNavigation from "../../../infrastructure/navigation/config-navigation";
+import dimensions from "../../../cross-cutting/hepers/dimensions";
 
 export default function Home({navigation}) {
     const productList: ProductModel[] = [
@@ -43,7 +44,7 @@ export default function Home({navigation}) {
 
     return <>
         <LayoutSafeArea>
-            <View style={{padding: 20}}>
+            <View style={{flex: dimensions.hp(50),padding: 20, justifyContent:'flex-end'}}>
                 <View style={{width: '70%', marginTop: 25}}>
                     <TextBold fontSize={34}>
                         Lo que necesitas para tu bebé
@@ -56,17 +57,19 @@ export default function Home({navigation}) {
                     <CategoryList/>
                 </View>
             </View>
-            <ScrollView style={{padding: 40, marginVertical: 25}}
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}>
-                {productList.map((product, index) =>
-                    <View key={`product-${index}`}>
-                        <CardProduct name={product.name}
-                                     value={product.value}
-                                     pathImg={product.pathImg}
-                                     callbackOnPress={() => navigation.navigate(ConfigNavigation.productDetail, {product})}/>
-                    </View>)}
-            </ScrollView>
+            <View  style={{flex:dimensions.hp(50), paddingHorizontal:20}}>
+                <ScrollView
+                            horizontal
+                            showsHorizontalScrollIndicator={false}>
+                    {productList.map((product, index) =>
+                        <View key={`product-${index}`} style={{justifyContent:'center'}}>
+                            <CardProduct name={product.name}
+                                         value={product.value}
+                                         pathImg={product.pathImg}
+                                         callbackOnPress={() => navigation.navigate(ConfigNavigation.productDetail, {product})}/>
+                        </View>)}
+                </ScrollView>
+            </View>
         </LayoutSafeArea>
     </>
 }

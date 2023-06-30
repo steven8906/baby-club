@@ -1,14 +1,14 @@
 import React from "react/index";
 import {Text, View} from "react-native";
-import {Colors, FontFamilies} from "../../../infrastructure/styles/theme";
+import {AppColors, FontFamilies} from "../../../infrastructure/styles/theme";
 
 interface Props {
     children : React.ReactNode;
     fontSize : number;
-    color?   : Colors;
+    color?   : AppColors;
 }
 
-export default function TextMedium({children, fontSize, color = Colors.black}: Props) {
+export default function TextMedium({children, fontSize, color = AppColors.black}: Props) {
 
     return <>
         <View>
