@@ -12,5 +12,5 @@ export default StyleSheet.create({
         shadowColor   : Colors.primary,
         shadowOpacity : .8,
         shadowRadius  : 6,
-    }
+    },
 })

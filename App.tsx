@@ -14,59 +14,73 @@ import User from "./app/ui/screens/user/user";
 import HistoryOrders from "./app/ui/screens/history-orders/history-orders";
 import {createStackNavigator} from "@react-navigation/stack";
 import ProductDetail from "./app/ui/screens/product-detail/product-detail";
+import stackCleanHeader from "./app/infrastructure/styles/stack-clean-header";
 
 export default function App() {
-    const {fontsLoaded} = useFontConfig();
+    const {fontsLoaded}       = useFontConfig();
     const {screen, setScreen} = useApp();
-    const Tab = createBottomTabNavigator();
-    const Stack = createStackNavigator();
+    const Tab                 = createBottomTabNavigator();
+    const Stack               = createStackNavigator();
 
     if (!fontsLoaded) return null;
 
     const iconsRoute: { [key: string]: React.ReactNode } = {
-        [ConfigNavigation.home]          : <HomeButton screen     ={screen}/>,
+        [ConfigNavigation.home]          : <HomeButton screen={screen}/>,
         [ConfigNavigation.favorites]     : <FavoritesButton screen={screen}/>,
-        [ConfigNavigation.user]          : <UserButton screen     ={screen}/>,
-        [ConfigNavigation.historyOrders] : <HistoryButton screen  ={screen}/>,
+        [ConfigNavigation.user]          : <UserButton screen={screen}/>,
+        [ConfigNavigation.historyOrders] : <HistoryButton screen={screen}/>,
+    }
+
+    const TabScreens = () => {
+        return <>
+            <Tab.Navigator
+                initialRouteName={ConfigNavigation.home}
+                screenOptions={({route}) => (
+                    {
+                        headerShown: false,
+                        tabBarStyle: tabStyles.tabBarStyle,
+                        title: '',
+                        tabBarIcon: () => {
+                            if (route.name in iconsRoute) return iconsRoute[route.name]
+                        },
+                    }
+                )}>
+                <Tab.Screen name={ConfigNavigation.home}
+                            component={Home}
+                            listeners={{tabPress: () => setScreen(ConfigNavigation.home)}}/>
+                <Tab.Screen name={ConfigNavigation.favorites}
+                            component={Favorites}
+                            listeners={{tabPress: () => setScreen(ConfigNavigation.favorites)}}/>
+                <Tab.Screen name={ConfigNavigation.user}
+                            component={User}
+                            listeners={{tabPress: () => setScreen(ConfigNavigation.user)}}/>
+                <Tab.Screen name={ConfigNavigation.historyOrders}
+                            component={HistoryOrders}
+                            listeners={{tabPress: () => setScreen(ConfigNavigation.historyOrders)}}/>
+            </Tab.Navigator>
+        </>
     }
 
     return <>
-
         <AppContext.Provider value={{screen, setScreen}}>
-            {screen !== ConfigNavigation.welcome ?
-                <>
-                    <NavigationContainer>
-                        <Tab.Navigator
-                            initialRouteName={ConfigNavigation.home}
-                            screenOptions={({route}) => (
-                                {
-                                    headerShown: false,
-                                    tabBarStyle: tabStyles.tabBarStyle,
-                                    title: '',
-                                    tabBarIcon: () => {
-                                        if (route.name in iconsRoute) return iconsRoute[route.name]
-                                    },
-                                }
-                            )}>
-                            <Tab.Screen name={ConfigNavigation.home}
-                                        component={Home}
-                                        listeners={{tabPress: () => setScreen(ConfigNavigation.home)}}/>
-                            <Tab.Screen name={ConfigNavigation.favorites}
-                                        component={Favorites}
-                                        listeners={{tabPress: () => setScreen(ConfigNavigation.favorites)}}/>
-                            <Tab.Screen name={ConfigNavigation.user}
-                                        component={User}
-                                        listeners={{tabPress: () => setScreen(ConfigNavigation.user)}}/>
-                            <Tab.Screen name={ConfigNavigation.historyOrders}
-                                        component={HistoryOrders}
-                                        listeners={{tabPress: () => setScreen(ConfigNavigation.historyOrders)}}/>
-                        </Tab.Navigator>
-                    </NavigationContainer>
-                    {/*<Stack.Navigator>*/}
-                    {/*    <Stack.Screen name={ConfigNavigation.productDetail} component={ProductDetail}/>*/}
-                    {/*</Stack.Navigator>*/}
-                </> :
-                <Welcome/>}
+            <>
+                <NavigationContainer>
+                    <Stack.Navigator screenOptions={{
+                        headerBackTitleVisible: false,
+                    }}>
+                        <Stack.Screen name={ConfigNavigation.welcome}
+                                      component={Welcome}
+                                      options={{headerShown: false}}/>
+                        <Stack.Screen name={ConfigNavigation.productDetail}
+                                      component={ProductDetail}
+                                      options={stackCleanHeader}/>
+                        <Stack.Screen name={'tab-screens'}
+                                      component={TabScreens}
+                                      options={{headerShown: false}}/>
+                    </Stack.Navigator>
+                </NavigationContainer>
+
+            </>
         </AppContext.Provider>
     </>
 }

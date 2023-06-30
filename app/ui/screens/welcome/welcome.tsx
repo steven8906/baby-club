@@ -3,13 +3,12 @@ import welcomeStyles from "./styles/welcome-styles";
 import TextBold from "../../components/text/text-bold";
 import {Colors} from "../../../infrastructure/styles/theme";
 import ButtonWhitePrimary from "../../components/buttons/button-white-primary";
-import useAppContext from "../../../application/hooks/use-app-context";
 import appImg from "../../../infrastructure/resources/app-img";
 import ConfigNavigation from "../../../infrastructure/navigation/config-navigation";
+import {useApp} from "../../../application/hooks/use-app-context";
 
-export default function Welcome() {
-    const { setScreen } = useAppContext();
-
+export default function Welcome({navigation}) {
+    const { setScreen } = useApp();
     return <>
         <SafeAreaView style={welcomeStyles.container}>
             <View style={welcomeStyles.main}>
@@ -23,7 +22,10 @@ export default function Welcome() {
                             source={appImg.welcome}
                         />
                         <ButtonWhitePrimary text={"Iniciar"}
-                                            callback={() => setScreen(ConfigNavigation.home)}/>
+                                            callback={() => {
+                                                setScreen(ConfigNavigation.home);
+                                                navigation.navigate(ConfigNavigation.tabScreens);
+                                            }}/>
                     </View>
                 </View>
             </View>

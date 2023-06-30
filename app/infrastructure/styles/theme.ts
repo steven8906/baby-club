@@ -1,4 +1,4 @@
-import appIcons from "../resources/app-icons";
+import {StyleSheet} from "react-native";
 
 export enum Colors {
     primary       = '#FFC83A',
@@ -16,3 +16,12 @@ export enum FontFamilies {
     extraBold     = 'SF-Pro-Rounded-Black',
     light         = 'sf-pro-rounded-light',
 }
+
+export const shadows = StyleSheet.create({
+    first:{
+        shadowColor       : Colors.black,
+        shadowOpacity     : .4,
+        shadowRadius      : 25,
+        shadowOffset      : {height: 0, width: 0},
+    }
+});

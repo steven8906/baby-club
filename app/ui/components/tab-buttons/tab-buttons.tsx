@@ -5,7 +5,7 @@ import {Colors} from "../../../infrastructure/styles/theme";
 import * as React from "react";
 
 
-export const HomeButton = ({screen}:{screen:string}) => <>
+export const HomeButton = ({screen}: { screen: string }) => <>
     <Ionicons name="home"
               size={28}
               style={screen === ConfigNavigation.home && {...tabStyles.icon}}
@@ -14,7 +14,7 @@ export const HomeButton = ({screen}:{screen:string}) => <>
                   Colors.silver}/>
 </>
 
-export const FavoritesButton = ({screen}:{screen:string}) => <>
+export const FavoritesButton = ({screen}: { screen: string }) => <>
     <MaterialIcons name="favorite-border"
                    size={28}
                    style={screen === ConfigNavigation.favorites
@@ -24,22 +24,22 @@ export const FavoritesButton = ({screen}:{screen:string}) => <>
                        Colors.silver}/>
 </>
 
-export const UserButton = ({screen}:{screen:string}) => <>
+export const UserButton = ({screen}: { screen: string }) => <>
     <Feather name="user"
              size={28}
              style={screen === ConfigNavigation.user
                  && {...tabStyles.icon}}
              color={screen === ConfigNavigation.user ?
                  Colors.primary :
-                 Colors.silver} />
+                 Colors.silver}/>
 </>
 
-export const HistoryButton = ({screen}:{screen:string}) => <>
+export const HistoryButton = ({screen}: { screen: string }) => <>
     <MaterialIcons name="history"
                    size={28}
                    style={screen === ConfigNavigation.historyOrders
                        && {...tabStyles.icon}}
                    color={screen === ConfigNavigation.historyOrders ?
                        Colors.primary :
-                       Colors.silver} />
+                       Colors.silver}/>
 </>

@@ -4,7 +4,8 @@ enum ConfigNavigation {
     favorites     = 'favorites',
     user          = 'user',
     historyOrders = 'history-orders',
-    productDetail = 'product-detail'
+    productDetail = 'product-detail',
+    tabScreens    = 'tab-screens'
 }
 
 export default ConfigNavigation;

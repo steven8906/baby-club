@@ -16,7 +16,7 @@ export default function CardProduct({name, pathImg, value, callbackOnPress}: Car
             <View>
                 <View style={cardProductStyles.box}>
                     <View style={cardProductStyles.boxImage}>
-                        <Image style={cardProductStyles.image} source={{uri: pathImg}}/>
+                        <Image style={cardProductStyles.image} source={{uri: pathImg[0]}}/>
                     </View>
                     <View style={{marginTop: 15}}>
                         <View style={cardProductStyles.boxText}>
