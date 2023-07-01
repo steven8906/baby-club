@@ -12,7 +12,6 @@ export default StyleSheet.create({
         borderRadius    : 25,
         flexDirection   :'row',
         gap             :10,
-        ...shadows.second
     },
     textDescriptionBox:{
         flex           : 1,

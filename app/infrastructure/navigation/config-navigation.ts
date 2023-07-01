@@ -7,6 +7,7 @@ enum ConfigNavigation {
     productDetail = 'product-detail',
     tabScreens    = 'tab-screens',
     basket        = 'basket',
+    delivery      = 'delivery',
 }
 
 export default ConfigNavigation;

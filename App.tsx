@@ -20,6 +20,7 @@ import {useProductsService} from "./app/application/services/use-products-servic
 import {useEffect} from "react";
 import Basket from "./app/ui/screens/basket/basket";
 import {AppColors} from "./app/infrastructure/styles/theme";
+import Delivery from "./app/ui/screens/delivery/delivery";
 
 export default function App() {
     const {fontsLoaded}                   = useFontConfig();
@@ -109,6 +110,13 @@ export default function App() {
                                       component={Basket}
                                       options={{
                                           title: 'Carrito',
+                                          headerTitleAlign: 'center',
+                                          headerStyle: {backgroundColor: AppColors.whiteMate}
+                                      }}/>
+                        <Stack.Screen name={ConfigNavigation.delivery}
+                                      component={Delivery}
+                                      options={{
+                                          title: 'Dirección del pedido',
                                           headerTitleAlign: 'center',
                                           headerStyle: {backgroundColor: AppColors.whiteMate}
                                       }}/>
