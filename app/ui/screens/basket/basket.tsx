@@ -49,7 +49,7 @@ export default function Basket({navigation}) {
         <View style={{flex: .2, justifyContent: 'center', alignItems: 'center', ...shadows.second}}>
             <ButtonBlackPrimary text={"Terminar compra"} callback={checkStepScreen}/>
         </View>
-        <CustomBottomSheet visible={showDeliveryDataSheet} setVisible={setShowDeliveryDataSheet} height={dimensions.hp(50)}>
+        <CustomBottomSheet visible={showDeliveryDataSheet} setVisible={setShowDeliveryDataSheet} height={dimensions.hp(65)}>
             <DeliveryDataForm/>
         </CustomBottomSheet>
     </>

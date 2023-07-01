@@ -32,7 +32,7 @@ export default function DeliveryDataForm() {
                             Dirección
                         </TextLight>
                     </View>
-                    <TextInputIcon icon={<IconAddress/>} placeholder={"Ingrese su nombre"}/>
+                    <TextInputIcon icon={<IconAddress/>} placeholder={"Ingrese su dirección"}/>
                 </View>
                 <View style={deliveryDataStyles.itemForm}>
                     <View style={{marginLeft:10}}>
@@ -40,10 +40,10 @@ export default function DeliveryDataForm() {
                             Teléfono
                         </TextLight>
                     </View>
-                    <TextInputIcon icon={<IconPhone/>} placeholder={"Ingrese su nombre"}/>
+                    <TextInputIcon icon={<IconPhone/>} placeholder={"Ingrese su número de teléfono"}/>
                 </View>
             </View>
-            <View style={{alignItems:'center'}}>
+            <View style={{alignItems:'center', justifyContent:'flex-end', flexGrow:1, paddingBottom:25}}>
                 <ButtonBlackPrimary callback={()=> null} text={"Guardar"}/>
             </View>
         </View>
