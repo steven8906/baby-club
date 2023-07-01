@@ -7,5 +7,18 @@ export default StyleSheet.create({
         justifyContent  :'center',
         alignItems      :'center',
         borderRadius    : 30
-    }
+    },
+    buttonBlackPrimary:{
+        width           : Dimensions.get('window').width - 100,
+        paddingVertical : 12,
+        justifyContent  :'center',
+        alignItems      :'center',
+        borderRadius    : 30
+    },
+    buttonBlackPrimaryCustomizable:{
+        paddingVertical : 12,
+        justifyContent  :'center',
+        alignItems      :'center',
+        borderRadius    : 30
+    },
 });

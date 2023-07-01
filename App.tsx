@@ -15,20 +15,27 @@ import HistoryOrders from "./app/ui/screens/history-orders/history-orders";
 import {createStackNavigator} from "@react-navigation/stack";
 import ProductDetail from "./app/ui/screens/product-detail/product-detail";
 import stackCleanHeader from "./app/infrastructure/styles/stack-clean-header";
+import {useBasket} from "./app/application/hooks/use-basket-context";
 
 export default function App() {
     const {fontsLoaded}       = useFontConfig();
     const {screen, setScreen} = useApp();
+    const {
+        addProductToBasket,
+        removeProductToBasket,
+        getProductCounter,
+        basketProductList,
+    }                         = useBasket();
     const Tab                 = createBottomTabNavigator();
     const Stack               = createStackNavigator();
 
     if (!fontsLoaded) return null;
 
     const iconsRoute: { [key: string]: React.ReactNode } = {
-        [ConfigNavigation.home]          : <HomeButton screen={screen}/>,
-        [ConfigNavigation.favorites]     : <FavoritesButton screen={screen}/>,
-        [ConfigNavigation.user]          : <UserButton screen={screen}/>,
-        [ConfigNavigation.historyOrders] : <HistoryButton screen={screen}/>,
+        [ConfigNavigation.home]: <HomeButton screen={screen}/>,
+        [ConfigNavigation.favorites]: <FavoritesButton screen={screen}/>,
+        [ConfigNavigation.user]: <UserButton screen={screen}/>,
+        [ConfigNavigation.historyOrders]: <HistoryButton screen={screen}/>,
     }
 
     const TabScreens = () => {
@@ -62,7 +69,14 @@ export default function App() {
     }
 
     return <>
-        <AppContext.Provider value={{screen, setScreen}}>
+        <AppContext.Provider value={{
+            screen,
+            setScreen,
+            basketProductList,
+            addProductToBasket,
+            removeProductToBasket,
+            getProductCounter,
+        }}>
             <>
                 <NavigationContainer>
                     <Stack.Navigator screenOptions={{

@@ -1,4 +1,4 @@
-import {Dimensions, PixelRatio, ScrollView, View} from "react-native";
+import {ScrollView, Text, View} from "react-native";
 import LayoutSafeArea from "../../components/layout/layout-safe-area";
 import TextBold from "../../components/text/text-bold";
 import TextInputSearch from "../../components/inputs/text-input-search";
@@ -7,8 +7,12 @@ import CardProduct from "../../components/card-product/card-product";
 import ProductModel from "../../../data/models/product/product-model";
 import ConfigNavigation from "../../../infrastructure/navigation/config-navigation";
 import dimensions from "../../../cross-cutting/hepers/dimensions";
+import useBasket from "../../../application/hooks/use-basket-context";
+import {Badge} from "react-native-paper";
+import {AppColors} from "../../../infrastructure/styles/theme";
 
 export default function Home({navigation}) {
+    const { getProductCounter, basketProductList,  } = useBasket();
     const productList: ProductModel[] = [
         {
             id: 0,
@@ -64,6 +68,11 @@ export default function Home({navigation}) {
                             showsHorizontalScrollIndicator={false}>
                     {productList.map((product, index) =>
                         <View key={`product-${index}`} style={{justifyContent:'center'}}>
+                            <Badge style={{
+                                backgroundColor: AppColors.primary
+                            }} size={25} disabled={true} visible={getProductCounter(product.id) > 0}>
+                                {getProductCounter(product.id)}
+                            </Badge>
                             <CardProduct name={product.name}
                                          value={product.value}
                                          pathImg={product.pathImg}

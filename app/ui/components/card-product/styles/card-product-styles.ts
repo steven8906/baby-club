@@ -5,7 +5,7 @@ import dimensions from "../../../../cross-cutting/hepers/dimensions";
 export default StyleSheet.create({
     box: {
         backgroundColor   : 'white',
-        width             : '85%',
+        width             : dimensions.wp(50),
         paddingBottom     : 40,
         paddingHorizontal : 30,
         borderRadius      : 20,

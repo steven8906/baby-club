@@ -11,7 +11,6 @@ export default StyleSheet.create({
     indicatorContent: {
         flexDirection : 'row',
         gap           : 10,
-        flex          : 1
     },
     primaryPoint: {
         width           : 12,
