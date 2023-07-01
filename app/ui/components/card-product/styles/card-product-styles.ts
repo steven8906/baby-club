@@ -13,6 +13,7 @@ export default StyleSheet.create({
         shadowOpacity     : .4,
         shadowRadius      : 25,
         shadowOffset      : {height: 0, width: 0},
+        elevation         : 3,
         alignItems        : 'center',
         gap               : 10,
         position          : 'relative',

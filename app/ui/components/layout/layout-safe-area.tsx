@@ -6,10 +6,11 @@ import {StatusBar} from "expo-status-bar";
 import dimensions from "../../../cross-cutting/hepers/dimensions";
 
 interface Props {
-    children: React.ReactNode;
+    children   : React.ReactNode;
+    navigation?:unknown;
 }
 
-export default function LayoutSafeArea({children}: Props) {
+export default function LayoutSafeArea({children, navigation}: Props) {
 
     return <>
         <StatusBar backgroundColor={AppColors.transparent}/>
@@ -19,7 +20,7 @@ export default function LayoutSafeArea({children}: Props) {
             marginTop: dimensions.hp(5)
         }}>
             <View style={{flex: 1}}>
-                <Header/>
+                <Header navigation={navigation}/>
                 {children}
             </View>
         </SafeAreaView>

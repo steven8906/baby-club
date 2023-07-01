@@ -24,5 +24,20 @@ export const shadows = StyleSheet.create({
         shadowOpacity     : .4,
         shadowRadius      : 25,
         shadowOffset      : {height: 0, width: 0},
+        elevation         : 3,
+    },
+    second:{
+        shadowColor       : AppColors.silver,
+        shadowOpacity     : .4,
+        shadowRadius      : 25,
+        shadowOffset      : {height: 0, width: 0},
+        elevation         : 3,
+    },
+    third:{
+        shadowColor       : AppColors.primary,
+        shadowOpacity     : .4,
+        shadowRadius      : 25,
+        shadowOffset      : {height: 0, width: 0},
+        elevation         : 3,
     }
 });

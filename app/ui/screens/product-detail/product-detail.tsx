@@ -23,11 +23,11 @@ export default function ProductDetail({navigation, route}) {
         removeProductToBasket
     } = useBasket();
 
-    const carouselElements = [...product.pathImg].map((path, index) => <>
+    const carouselElements = [...product.pathImg].map((path, index) =>
         <Image key={`product-img-${index}`}
                style={productDetailStyle.image}
                source={{uri: path}}/>
-    </>);
+    );
 
     function addProduct() {
         addProductToBasket(product.id);

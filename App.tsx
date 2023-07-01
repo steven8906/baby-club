@@ -16,18 +16,29 @@ import {createStackNavigator} from "@react-navigation/stack";
 import ProductDetail from "./app/ui/screens/product-detail/product-detail";
 import stackCleanHeader from "./app/infrastructure/styles/stack-clean-header";
 import {useBasket} from "./app/application/hooks/use-basket-context";
+import {useProductsService} from "./app/application/services/use-products-service";
+import {useEffect} from "react";
+import Basket from "./app/ui/screens/basket/basket";
+import {AppColors} from "./app/infrastructure/styles/theme";
 
 export default function App() {
-    const {fontsLoaded}       = useFontConfig();
-    const {screen, setScreen} = useApp();
+    const {fontsLoaded}                   = useFontConfig();
+    const {screen, setScreen}             = useApp();
+    const {productListState, getProducts} = useProductsService();
     const {
         addProductToBasket,
         removeProductToBasket,
         getProductCounter,
+        removeAllProductToBasket,
         basketProductList,
-    }                         = useBasket();
-    const Tab                 = createBottomTabNavigator();
-    const Stack               = createStackNavigator();
+    } = useBasket();
+
+    const Tab   = createBottomTabNavigator();
+    const Stack = createStackNavigator();
+
+    useEffect(() => {
+        getProducts();
+    }, [])
 
     if (!fontsLoaded) return null;
 
@@ -76,6 +87,9 @@ export default function App() {
             addProductToBasket,
             removeProductToBasket,
             getProductCounter,
+            getProducts,
+            removeAllProductToBasket,
+            productList: productListState,
         }}>
             <>
                 <NavigationContainer>
@@ -88,9 +102,16 @@ export default function App() {
                         <Stack.Screen name={ConfigNavigation.productDetail}
                                       component={ProductDetail}
                                       options={stackCleanHeader}/>
-                        <Stack.Screen name={'tab-screens'}
+                        <Stack.Screen name={ConfigNavigation.tabScreens}
                                       component={TabScreens}
                                       options={{headerShown: false}}/>
+                        <Stack.Screen name={ConfigNavigation.basket}
+                                      component={Basket}
+                                      options={{
+                                          title: 'Carrito',
+                                          headerTitleAlign: 'center',
+                                          headerStyle: {backgroundColor: AppColors.whiteMate}
+                                      }}/>
                     </Stack.Navigator>
                 </NavigationContainer>
 

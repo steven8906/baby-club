@@ -4,8 +4,9 @@ import {Feather, SimpleLineIcons} from "@expo/vector-icons";
 import {AppColors} from "../../../infrastructure/styles/theme";
 import useBasket from "../../../application/hooks/use-basket-context";
 import {Badge} from "react-native-paper";
+import ConfigNavigation from "../../../infrastructure/navigation/config-navigation";
 
-export default function Header() {
+export default function Header({navigation}) {
     const {basketProductList} = useBasket();
 
     return <>
@@ -23,9 +24,11 @@ export default function Header() {
                     <Feather name={"menu"} size={25}/>
                 </TouchableOpacity>
             </View>
-            <View style={headerStyles.basketButtonContent}>
-                <SimpleLineIcons name="basket-loaded" size={25} color={AppColors.silver}/>
-            </View>
+            { basketProductList.length > 0 && <View style={headerStyles.basketButtonContent}>
+                <TouchableOpacity onPress={() => navigation.navigate(ConfigNavigation.basket)}>
+                    <SimpleLineIcons name="basket-loaded" size={25} color={AppColors.silver}/>
+                </TouchableOpacity>
+            </View>}
         </View>
     </>
 }
