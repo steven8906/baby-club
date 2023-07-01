@@ -1,4 +1,4 @@
-import {ScrollView, Text, View} from "react-native";
+import {ScrollView, View} from "react-native";
 import LayoutSafeArea from "../../components/layout/layout-safe-area";
 import TextBold from "../../components/text/text-bold";
 import TextInputSearch from "../../components/inputs/text-input-search";
@@ -12,7 +12,7 @@ import {Badge} from "react-native-paper";
 import {AppColors} from "../../../infrastructure/styles/theme";
 
 export default function Home({navigation}) {
-    const { getProductCounter, basketProductList,  } = useBasket();
+    const { getProductCounter } = useBasket();
     const productList: ProductModel[] = [
         {
             id: 0,

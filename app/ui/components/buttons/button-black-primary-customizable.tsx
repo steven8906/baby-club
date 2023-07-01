@@ -5,11 +5,11 @@ import React, {useState} from "react";
 import TextBold from "../text/text-bold";
 
 interface Props {
-    text?    : string;
-    width?   : string|number;
-    children?    : React.ReactNode;
-    callback :()=> void;
-    color?   : AppColors;
+    text    ?: string;
+    width   ?: string | number;
+    children?: React.ReactNode;
+    callback: () => void;
+    color   ?: AppColors;
 }
 
 export default function ButtonBlackPrimaryCustomizable({text, callback, color = AppColors.primary, width, children}: Props) {

@@ -18,7 +18,6 @@ import {Ionicons} from "@expo/vector-icons";
 export default function ProductDetail({navigation, route}) {
     const {product}: { product: ProductModel } = route.params;
     const {
-        basketProductList,
         addProductToBasket,
         getProductCounter,
         removeProductToBasket
@@ -82,9 +81,9 @@ export default function ProductDetail({navigation, route}) {
                             width: dimensions.wp(100),
                             gap: 15,
                         }}>
-                            {basketProductList.length > 0 && <>
+                            {getProductCounter(product.id) > 0 && <>
                                 <ButtonBlackPrimaryCustomizable callback={removeProduct} width={60}>
-                                    <Ionicons name="md-remove" size={24} color="black"/>
+                                    <Ionicons name="md-remove" size={24}/>
                                 </ButtonBlackPrimaryCustomizable>
                             </>}
                             <ButtonBlackPrimaryCustomizable text={"Agregar al carrito"} callback={addProduct}
