@@ -8,6 +8,8 @@ enum ConfigNavigation {
     tabScreens    = 'tab-screens',
     basket        = 'basket',
     delivery      = 'delivery',
+    checkout      = 'checkout',
+    sendingOrder  = 'sending-order',
 }
 
 export default ConfigNavigation;

@@ -21,6 +21,8 @@ import {useEffect} from "react";
 import Basket from "./app/ui/screens/basket/basket";
 import {AppColors} from "./app/infrastructure/styles/theme";
 import Delivery from "./app/ui/screens/delivery/delivery";
+import Checkout from "./app/ui/screens/checkout/checkout";
+import SendingOrder from "./app/ui/screens/sending-order/sending-order";
 
 export default function App() {
     const {fontsLoaded}                   = useFontConfig();
@@ -32,7 +34,12 @@ export default function App() {
         getProductCounter,
         removeAllProductToBasket,
         basketProductList,
-    } = useBasket();
+        getTotal,
+        stateOrder,
+        changeBasketState,
+        setStateOrderInfo,
+        orderInfo,
+    } = useBasket(productListState);
 
     const Tab   = createBottomTabNavigator();
     const Stack = createStackNavigator();
@@ -83,14 +90,19 @@ export default function App() {
     return <>
         <AppContext.Provider value={{
             screen,
-            setScreen,
             basketProductList,
+            stateOrder,
+            productList: productListState,
+            orderInfo,
+            setScreen,
             addProductToBasket,
             removeProductToBasket,
             getProductCounter,
             getProducts,
             removeAllProductToBasket,
-            productList: productListState,
+            getTotal,
+            changeBasketState,
+            setStateOrderInfo,
         }}>
             <>
                 <NavigationContainer>
@@ -111,15 +123,31 @@ export default function App() {
                                       options={{
                                           title: 'Carrito',
                                           headerTitleAlign: 'center',
-                                          headerStyle: {backgroundColor: AppColors.whiteMate}
+                                          headerStyle: {backgroundColor: AppColors.whiteMate},
+                                          headerShadowVisible: false,
+                                          headerBackTitleVisible: false,
                                       }}/>
                         <Stack.Screen name={ConfigNavigation.delivery}
                                       component={Delivery}
                                       options={{
                                           title: 'Dirección del pedido',
                                           headerTitleAlign: 'center',
-                                          headerStyle: {backgroundColor: AppColors.whiteMate}
+                                          headerStyle: {backgroundColor: AppColors.whiteMate},
+                                          headerShadowVisible: false,
+                                          headerBackTitleVisible: false,
                                       }}/>
+                        <Stack.Screen name={ConfigNavigation.checkout}
+                                      component={Checkout}
+                                      options={{
+                                          title: 'Pago',
+                                          headerTitleAlign: 'center',
+                                          headerStyle: {backgroundColor: AppColors.whiteMate},
+                                          headerShadowVisible: false,
+                                          headerBackTitleVisible: false,
+                                      }}/>
+                        <Stack.Screen name={ConfigNavigation.sendingOrder}
+                                      component={SendingOrder}
+                                      options={{headerShown:false}}/>
                     </Stack.Navigator>
                 </NavigationContainer>
 

@@ -6,7 +6,11 @@ import {Entypo, Feather, MaterialIcons} from "@expo/vector-icons";
 import TextLight from "../../../components/text/text-light";
 import ButtonBlackPrimary from "../../../components/buttons/button-black-primary";
 
-export default function DeliveryDataForm() {
+interface Props {
+    callback   : ()=> void;
+}
+
+export default function DeliveryDataForm({callback} : Props) {
     const IconName    = () => <MaterialIcons name="drive-file-rename-outline" size={24} color="black"/>
     const IconAddress = () => <Entypo name="address" size={24} color="black"/>
     const IconPhone   = () => <Feather name="smartphone" size={24} color="black"/>;
@@ -44,7 +48,7 @@ export default function DeliveryDataForm() {
                 </View>
             </View>
             <View style={{alignItems:'center', justifyContent:'flex-end', flexGrow:1, paddingBottom:25}}>
-                <ButtonBlackPrimary callback={()=> null} text={"Guardar"}/>
+                <ButtonBlackPrimary callback={callback} text={"Guardar"}/>
             </View>
         </View>
     </>

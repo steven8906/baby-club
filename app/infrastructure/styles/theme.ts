@@ -7,6 +7,7 @@ export enum AppColors {
     whiteMate     = '#F2F2F2',
     mate          = '#EFEEEE',
     silver        = '#A9A9A9',
+    silverLight   = '#F2F1F1',
     transparent   = 'transparent',
 }
 

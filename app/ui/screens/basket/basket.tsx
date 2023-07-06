@@ -10,8 +10,8 @@ import {Feather} from "@expo/vector-icons";
 import dimensions from "../../../cross-cutting/hepers/dimensions";
 import useCaseBasket from "./use-cases/use-case-basket";
 import CustomBottomSheet from "../../components/bottom-sheet/custom-bottom-sheet";
-import TextRegular from "../../components/text/text-regular";
 import DeliveryDataForm from "./components/delivery-data-form";
+import ConfigNavigation from "../../../infrastructure/navigation/config-navigation";
 
 export default function Basket({navigation}) {
     const {
@@ -49,8 +49,13 @@ export default function Basket({navigation}) {
         <View style={{flex: .2, justifyContent: 'center', alignItems: 'center', ...shadows.second}}>
             <ButtonBlackPrimary text={"Terminar compra"} callback={checkStepScreen}/>
         </View>
-        <CustomBottomSheet visible={showDeliveryDataSheet} setVisible={setShowDeliveryDataSheet} height={dimensions.hp(65)}>
-            <DeliveryDataForm/>
+        <CustomBottomSheet visible={showDeliveryDataSheet}
+                           setVisible={setShowDeliveryDataSheet}
+                           height={dimensions.hp(65)}>
+            <DeliveryDataForm callback={()=> {
+                setShowDeliveryDataSheet(false);
+                setTimeout(()=> navigation.navigate(ConfigNavigation.checkout), 500);
+            }}/>
         </CustomBottomSheet>
     </>
 }
