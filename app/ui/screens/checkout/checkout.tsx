@@ -11,7 +11,6 @@ import formatters from "../../../cross-cutting/hepers/formatters";
 import ButtonBlackPrimaryCustomizable from "../../components/buttons/button-black-primary-customizable";
 import OrderStates from "../../../cross-cutting/constants/order-states";
 import ConfigNavigation from "../../../infrastructure/navigation/config-navigation";
-import TextRegular from "../../components/text/text-regular";
 
 export default function Checkout({navigation}) {
     const [method, setMethod]           = useState<'cash' | 'payment-methods' | ''>('');
