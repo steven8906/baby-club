@@ -3,9 +3,9 @@ import {AppColors} from "../../../../infrastructure/styles/theme";
 
 export default StyleSheet.create({
    content:{
-       flex            : 1,
-       padding         : 20,
-       backgroundColor : AppColors.whiteMate,
+       flex              : 1,
+       paddingHorizontal : 20,
+       backgroundColor   : AppColors.whiteMate,
    },
     itemMethod:{
         flexDirection     : 'row',
@@ -26,24 +26,25 @@ export default StyleSheet.create({
     deliveryMethod:{
         backgroundColor : AppColors.white,
         borderRadius    : 20,
-        marginVertical  : 25,
+        marginTop       : 40,
         padding         : 20,
+        justifyContent  : 'flex-start'
     },
     total:{
         flexDirection     : 'row',
         justifyContent    : 'space-between',
         alignItems        : 'center',
-        paddingHorizontal : 20
+        padding           : 20
     },
     deliveryMan:{
         flexDirection     : 'row',
         justifyContent    : 'flex-start',
         alignItems        : 'center',
-        padding           : 20,
         marginVertical    : 10,
         flexGrow          : 1,
         borderRadius      : 20,
         gap               : 20,
-        backgroundColor   : AppColors.silverLight
+        backgroundColor   : AppColors.silverLight,
+        paddingHorizontal : 20
     },
 });

@@ -1,7 +1,3 @@
-import moment from "moment/moment";
-import 'moment/locale/es';
-import dateTimeFormats from "../constants/date-time-formats";
-
 export default {
     currency(amount: number | string): string {
         return new Intl.NumberFormat('es-CO', {
@@ -11,5 +7,17 @@ export default {
             minimumFractionDigits : 0,
         }).format(amount as number);
     },
-    dateTimeToLocaleString: (dateTime: Date):string=> moment(dateTime).locale('es-CO').format(dateTimeFormats.dateTimeLocal)
+    dateTimeToLocaleString: (dateTime: Date):string=> {
+        return new Intl.DateTimeFormat('es-CO', {
+            day       : 'numeric',
+            hour      : '2-digit',
+            hour12    : true,
+            minute    : '2-digit',
+            second    : '2-digit',
+            year      : 'numeric',
+            month     : 'long',
+            dateStyle : 'long',
+            timeStyle: 'short'
+        }).format(dateTime)
+    }
 }
