@@ -19,11 +19,12 @@ export default function Header({navigation}) {
             }} size={20} disabled={true} visible={new Set([...basketProductList]).size > 0}>
                 {new Set([...basketProductList]).size}
             </Badge>
-            <View style={headerStyles.menuButtonContent}>
-                <TouchableOpacity>
-                    <Feather name={"menu"} size={25}/>
-                </TouchableOpacity>
-            </View>
+            {/*TODO:PENDIENTE MENU HAMBURGUESA*/}
+            {/*<View style={headerStyles.menuButtonContent}>*/}
+            {/*    <TouchableOpacity>*/}
+            {/*        <Feather name={"menu"} size={25}/>*/}
+            {/*    </TouchableOpacity>*/}
+            {/*</View>*/}
             { basketProductList.length > 0 && <View style={headerStyles.basketButtonContent}>
                 <TouchableOpacity onPress={() => navigation.navigate(ConfigNavigation.basket)}>
                     <SimpleLineIcons name="basket-loaded" size={25} color={AppColors.silver}/>

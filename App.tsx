@@ -71,15 +71,15 @@ export default function App() {
                         },
                     }
                 )}>
-                <Tab.Screen name={ConfigNavigation.home}
-                            component={Home}
-                            listeners={{tabPress: () => setScreen(ConfigNavigation.home)}}/>
-                <Tab.Screen name={ConfigNavigation.favorites}
-                            component={Favorites}
-                            listeners={{tabPress: () => setScreen(ConfigNavigation.favorites)}}/>
+                {/*<Tab.Screen name={ConfigNavigation.favorites}*/}
+                {/*            component={Favorites}*/}
+                {/*            listeners={{tabPress: () => setScreen(ConfigNavigation.favorites)}}/>*/}
                 <Tab.Screen name={ConfigNavigation.user}
                             component={User}
                             listeners={{tabPress: () => setScreen(ConfigNavigation.user)}}/>
+                <Tab.Screen name={ConfigNavigation.home}
+                            component={Home}
+                            listeners={{tabPress: () => setScreen(ConfigNavigation.home)}}/>
                 <Tab.Screen name={ConfigNavigation.historyOrders}
                             component={HistoryOrders}
                             listeners={{tabPress: () => setScreen(ConfigNavigation.historyOrders)}}/>
